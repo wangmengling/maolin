@@ -1,7 +1,14 @@
 <head>
-  <title>Redux TodoMVC example</title>
+  <title>simple-todos</title>
 </head>
 
 <body>
-  <div class="todoapp" id="root"></div>
+  <h1>Welcome to Meteor!</h1>
+
+  {{> hello}}
 </body>
+
+<template name="hello">
+  <button>Click Me</button>
+  <p>You've pressed the button {{counter}} times.</p>
+</template>
