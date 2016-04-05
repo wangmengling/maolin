@@ -1,23 +1,25 @@
-if (Meteor.isClient) {
-  // counter starts at 0
-  Session.setDefault('counter', 0);
+import { Meteor } from 'meteor/meteor';
+import 'babel-polyfill'
+import React from 'react'
+import ReactDOM from 'react-dom'
+import { Provider } from 'react-redux'
+import App from '../project/containers/App'
+import configureStore from '../project/store/configureStore'
+import 'todomvc-app-css/index.css'
 
-  Template.hello.helpers({
-    counter: function () {
-      return Session.get('counter');
-    }
-  });
 
-  Template.hello.events({
-    'click button': function () {
-      // increment the counter when button is clicked
-      Session.set('counter', Session.get('counter') + 1);
-    }
-  });
-}
 
-if (Meteor.isServer) {
-  Meteor.startup(function () {
-    // code to run on server at startup
-  });
-}
+Meteor.startup(() => {
+  const store = configureStore()
+  const node = (
+    <Provider
+      store={store}
+      >
+      <App />
+    </Provider>
+  )
+  ReactDOM.render(
+    node,
+    document.getElementById('root')
+  )
+})
