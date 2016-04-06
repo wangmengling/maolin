@@ -9,7 +9,7 @@ const Bar = () => (<div>Bar!</div>)
 
 const routes = (
   <Route path="/" component={App}>
-    <IndexRoute component={Home}/>
+    // <IndexRoute component={Home}/>
     <Route path="foo" component={Foo}/>
     <Route path="bar" component={Bar}/>
   </Route>
